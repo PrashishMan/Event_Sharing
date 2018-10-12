@@ -1,13 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-class User (models.Model):
-    firstName = models.CharField(max_length= 100)
-    lastName = models.CharField(max_length=100)
-    city = models.CharField(max_length=100)
-    street = models.CharField(max_length=100)
-    contact =models.CharField(max_length= 100)
-    email =models.EmailField()
-
-    def __str__(self):
-        return print("First name : " + self.firstName + " Last Name : " + self.lastName)
+class Profile (models.Model):
+    city = models.CharField(max_length=100,blank=True)
+    street = models.CharField(max_length=100,blank=True )
+    contact =models.CharField(max_length= 100, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="profiles")

@@ -1,4 +1,12 @@
 from selenium import webdriver
 browser = webdriver.Firefox()
-browser.get('http://localhost:8000/api')
+
+#User Story
+#User navigtes to the home page
+browser.get('http://localhost:3001/home')
+
+#Browser redirects to the login page in not logged in
+
+browser.quit()
+
 assert 'Django' in browser.title
